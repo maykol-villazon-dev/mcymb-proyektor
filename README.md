@@ -141,7 +141,7 @@ Este proyecto se distribuye bajo la licencia **MIT** de código abierto. Eres li
 
 ## 👨‍💻 Autor y Créditos
 
-* **Desarrollador y Mantenedor:** [Maykol Villazón Flores](https://github.com/maykol-villazon-dev)
+* **Desarrollador y Mantenedor:** [Maykol Villazon Flores](https://github.com/maykol-villazon-dev)
 * **GitHub:** [@maykol-villazon-dev](https://github.com/maykol-villazon-dev)
 * **Organización / Identidad:** MCyMB (*Movimiento Cristiano y Misionero Boliviano*)
 
