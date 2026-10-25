@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+<script>
+var local=0;
+ if(window.location.host.search("labiblia.in") == -1 ){ local=1;}
+ if(local != '1' && window.location.protocol == 'http:'){ 
+	document.location.href="https://proyektor.labiblia.in/?"+ Math.floor(Math.random() * 100);
+	}
+</script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MCyMB</title>
+<meta name="description" content="MCyMB - Sistema Multimedia Cristiano y Proyección Bíblica" /> 
+<meta name="keywords" content="mcymb, biblia, proyeccion, biblia online, concordancia, canciones, alabanza, proyeccion iglesias" /> 
+<meta name="language" content="es" /> 
+<meta name="rating" content="general" /> 
+<meta name="distribution" content="global" />
+<meta name="abstract" content="MCyMB - Sistema Multimedia Cristiano y Proyección Bíblica" /> 
+<meta name="revisit-after" content="1 days" /> <meta name="robots" content="index, follow" /> <meta name="owner" content="MCyMB" /> 
+<meta name="author" content="Maykol Villazón" />
+<link rel="shortcut icon" href="/fav.png?f=fav&t=p" />
+<link rel="preload" href="/matei.woff?f=matei&t=w" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css.css?f=css&t=c">
+<link rel="stylesheet" href="/css/font/atami/atami.css">
+<link rel="stylesheet" href="/css/font/dosis/dosis.css">
+<link rel="stylesheet" href="/css/font/kaushanscript/kaushanscript.css">
+<link rel="stylesheet" href="/css/font/lato/lato.css">
+<link rel="stylesheet" href="/css/font/oregano/oregano.css">
+<link rel="stylesheet" href="/css/font/quicksand/quicksand.css">
+<link rel="stylesheet" href="/css/font/raleway/raleway.css">
+<link rel="stylesheet" href="/css/font/roboto/roboto.css">
+<link rel="stylesheet" href="/css/font/tangerine/tangerine.css">
+<script src="/engine.js?f=engine&t=j"></script>
+<script src="/motor.js?r=202&f=motor.js&t=j"></script>
+
+
+<meta property="og:title" content="PROYEKTOR" />
+<meta property="og:description" content="Proyecta la Biblia, Canciones y Anuncios desde tu Navegador"/>
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://proyektor.labiblia.in/presentacion.jpg?f=presentacion&t=jp"/>
+
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="1330" />
+<meta property="og:image:height" content="436" />
+<!--
+<link rel="preload" as="image" href="/?f=fuente&t=p">
+<link rel="preload" as="image" href="/?f=loading&t=g">
+-->
+
+<link rel="stylesheet" id="bl">
+
+</head>
+	<body class="style-7 animated fadeIn" style="display:visible;" onbeforeunload="if(local==1){return actdb(event)}">
+<div id="msg" class="black"></div>
+<nav class="z-depth-2 ">
+<div id="" class="nav-wrapper valign-wrapper" style="margin-left:0px;">
+<a id="descargar" class="vinculo brand-logo right hide-on-small-only" onclick="descargar();" style="zoom:0.8;display:none;padding-right: 500px;">
+	<div class="animated pulse responsive-img  waves-effect waves-light  tooltipped"  data-tooltip="Descarga la Versión Portable" style="height:60px;padding:0px;">
+		<img src="/descargar.png?f=descargar&t=p">
+	</div>
+</a>  
+<div id="btn-theme-toggle" class="btn-theme-toggle tooltipped" data-position="bottom" data-delay="50" data-tooltip="Alternar Modo Oscuro / Claro" onclick="toggleModoOscuro()">
+	<span id="theme-icon">🌙</span>
+	<span id="theme-text" class="hide-on-small-only">Modo</span>
+</div>
+<a class="vinculo brand-logo right  hide-on-small-only" href="/" style="padding-right: 5px;"><div class="animated jello responsive-img" style="width:310px;height:50px;"><img src="/logo.png?f=logo&t=p&v=2" draggable="false" class="responsive-img" style="padding-right:5px"></div></a>  
+<a id="logo" class="vinculo brand-logo right  hide-on-small-only" href="/" style="display:none;padding-right: 5px;"><div class=" animated jello responsive-img" style="width:310px;height:50px"><img src="/logo.png?f=logo&t=p&v=2" draggable="false" style="padding-right:5px" class="responsive-img"></div></a>
+	<i class="material-icons prefix grey-text text-lighten-3" style="position:relative;left:28px;z-index:1;">search</i>
+   <div class="input-field s12 white-text" style="height:60%;width:50vw;top:-10px">
+      <input  id="texto" autocomplete="off" name="texto"  placeholder="Buscar en la Biblia" type="text" style="border-radius:5px;width:18vw;box-shadow: 0px 0px 2px #FFF" class=" darken-2 " onKeyUp="buscar(this.value);">
+<span>
+      <input type="radio" id="tb" name="parte" value="0" onClick="buscar($('#texto').val());" checked />
+      <label for="tb" class="white-text tooltipped" data-tooltip="Toda la Biblia" >Toda</label>
+      <input name="parte" type="radio" id="at" value="AT" onClick="buscar($('#texto').val());">
+      <label for="at" class="white-text tooltipped" data-tooltip="Antiguo Testamento">A.T.</label>
+      <input name="parte" type="radio" id="nt" value="NT" onClick="buscar($('#texto').val());">
+      <label for="nt" class="white-text tooltipped"  data-tooltip="Nuevo Testamento">N.T.</label>
+</span>
+    </div>
+</div>
+  </nav>
+<ul id="slide-out" class="">
+	<li style="display: none;" id="concord-icon" class="tooltipped lateral" data-position="right" data-delay="50" data-tooltip="Concordancia"><a href="#" onclick="ocultador('marco');llama.$data.disp='block'; $('#bibliacompleta').hide();"><div class="lupa emoji animated fadeIn"></div></a></li>
+	<li class="tooltipped lateral" data-position="right" data-delay="50" title="Leer la Biblia" data-tooltip="Leer la Biblia"><a href="#" onclick="ocultador('marco'); llama.$data.disp='none'; $('#bibliacompleta').show(); if(typeof biblia.list[0] === 'undefined'){ searchbible();bible('');$('#lib').focus();}"><div class="bibliaicon emoji"></div></a></li>
+	<li class="tooltipped lateral" data-position="right" data-delay="50" data-tooltip="Canciones"><a href="#" onclick="ocultador('canciones');if(typeof cancion.list[0] === 'undefined'){searchcancion(); canciones(''); bookmark(); $('#can').focus();} else{bookmark();}"><div class="teclado emoji"></div></a></li>
+	<li class="tooltipped lateral" data-position="right" data-delay="50" data-tooltip="Cambiar Fondo"><a href="#" onclick="ocultador('fondos'); if(typeof dirs.list[0] === 'undefined'){dire(0);} else{dire(1);}"><div class="paisaje emoji"></div></a></li>
+  <li class="tooltipped lateral" data-position="right" data-delay="50" data-tooltip="Reproductor de Video"><a href="#" onclick="ocultador('videoplayer'); videoplayer();"><div class="video emoji"></div></a></li>
+  
+	<li class="tooltipped lateral" data-position="right" data-delay="50" data-tooltip="Notas y Anuncios"><a href="#" onclick="ocultador('not');notas();"><div class="notas emoji"></div></a></li>
+
+  <li style="bottom: 100px;position: absolute;"  class="tooltipped lateral" data-position="right" data-delay="50" data-tooltip="Recursos y Complementos"><a href="#"  onclick="ocultador('updates');updates('biblias');"><div class="update emoji"></div></a></li>
+  <li style="bottom: 40px;position: absolute;"  class="tooltipped lateral" data-position="right" data-delay="50" data-tooltip="Información"><a href="#" onclick="ocultador('info');info();"><div class="info emoji"></div></a></li>
+</ul> 
+
+<main id="centro" class="center" >
+
+<div id="actualizaciones" class="modal caja style-7 modal-fixed-footer" style="width:70%">
+	<div class="modal-content" style="font-size:20px;"><h5 class="center light">Cambios en esta versión</h5>
+		<div id="act"></div>
+	</div>
+	<div class="modal-footer grey lighten-4" style="zoom:0.7" >
+		<a onclick="$('.modal').modal('close');" class="vinculo modal-action modal-close waves-effect waves-blue letrero conf darken-4 right">Cerrar</a>
+	</div>
+</div>
+
+<div id="info" class="row center" style="display:none"></div>
+<div id="bien" class="row center"> <div class="col s10 caja card-panel">
+<div class="col s12 center">
+<div id="logocentro" class="hide s8 col">
+	<div class="vinculo" onclick= 'win=window.open("/?f=visor&t=h","visor", "width=640,height=430,scrollbars=no,menubar=no,toolbar=no,status=no"); setTimeout(()=>{ visor();cambiartexto("Bienvenidos","<span onclick=\"full()\" style=\"padding:5px;\" ><img style=\"cursor:pointer;padding:3px;width:25px\" src=\""+ window.location.protocol + "//" + window.location.host + "/?f=flecha&t=g\"></span><br><h3><small style=\"line-height:9vh;\">Click aquí para autorizar<br>reproducción de video</small></h3>");},500); setTimeout(()=>{letram.noUiSlider.set(20);},1200)  '>
+		<img src="/presentacion.png?f=presentacion&t=p" class="responsive-img" draggable="false"  style="max-height:43vh;padding-left: 50px;margin-top:15vh">
+	</div>
+</div>
+<div class="col s2">
+</div>
+
+</div>
+
+</div>
+  <div class="col s2 row">
+  <div class="caja card  center"  id="contacto" style="overflow-x: hidden;">
+  <div class="col s12 flow-text center"> <div id="version" class="conf darken-4 letrero">Contacto</div>
+
+
+<div id="patrocinadores" class="modal style-7 modal-fixed-footer" style="width:70%">
+		<div class="modal-content" style="font-size:16px;min-height: 400px;">
+			<h5 class="center light">Quienes han contribuido para que este proyecto continue</h5>
+			<div id="patro"><br><br><img src="/loading.gif?f=loading&t=g"><br><div style="font-size:22px">Requiere Internet</div></div>
+		</div>
+  	<div class="modal-footer grey lighten-4" >
+    <a onclick="$('.modal').modal('close');" class="vinculo modal-action modal-close waves-effect waves-blue letrero conf darken-4 right">Cerrar</a>
+  </div>
+</div>
+
+
+<script>
+function what(){
+swal({html:
+		"<img src='/wath.png?f=what&t=p'><br><h5><a target='_blank' href='https://chat.whatsapp.com/ISEz3tJ3SviBBTxy85EP07'>https://chat.whatsapp.com/ISEz3tJ3SviBBTxy85EP07</a></h5>"
+//+"<h5>Escanea este código en Whatsapp</h5><img src='/?f=qr&t=p'>"
+ // +"<h5>O añade este Número +573506809207</h5>"
+ });}
+
+
+var act = document.getElementById("act");
+
+async function loadText(fname) {
+  var str = await fetch(fname)
+  var j =  await str.text()
+	act.innerHTML = j
+}
+loadText("/?ver");
+</script>
+
+
+<div style="zoom:0.7;-moz-transform: scale(0.7,0.7);">
+<a href="https://t.me/joinchat/eRduch29eJhhNDUx" title="Telegram" target="_blank"><div style="height: 88px;margin:20px" class="contact"><img style="padding-top:30px" src="/telegram.png?f=telegram&t=p"></div></a>
+
+<a href="#" onclick="what()" title="Whatsapp"><div class="responsive-img contact"><img style="margin-top:50px" src="/what.png?f=what&t=p"></div></a>
+<a href="#" onclick="swal('info@labiblia.in','','info');" title="Email"><div class="responsive-img contact"><img style="margin-top:20px" src="/email.png?f=email&t=p"></div></a>
+
+<a href="https://www.youtube.com/c/LaBibliainproyektor" title="Youtube" target="_blank"><div class="responsive-img youtube contact" style="display:relative;margin-top:20px;height: 60px;"> </div></a>
+<br>
+
+<div class="panel " style="border-radius: 8px;">
+<a class="hide" href="#patrocinadores" onclick="$('#patro').load('/?patro');"><div style="height: 88px;" class="contact" title="Patrocinadores"><img style="padding-top:0px" src="/sponsor.png?f=sponsor&t=p"></div></a>
+<div style="height: 20px;"></div>
+<a href="#actualizaciones"><small class="vinculo letrero conf darken-4" style="padding:10px">Actualizaciones</small></a>
+</div>
+
+</div>
+
+</div>
+ </div>
+  </div>
+</div>
+
+<div id="marco" class="row" style="display: none;">
+<div class="col s12 m4  " ><div class=" caja card-panel style-7"><div id="busqueda"></div><div id="bibliacompleta"></div></div></div>
+<div class="col s12 m3 "  ><div id="comple" class=" caja card style-7"><div id="vers"></div> <div id="play"></div> </div></div>
+<div class="col s12 m5 "  ><div id="leer" class=" caja card-panel style-7"><div class="col s12 center"><img src="/biblia.png?f=biblia&t=p" class="responsive-img col s7 offset-s3"></div><br>
+<h5 class="light center"><i class="material-icons">chevron_left</i> Selecciona uno de los resultados al lado izquierdo</h5>
+</div></div>
+</div>
+
+<div id="canciones" class="row" style="display:none;">
+<div class="col s6 m5"><div id="listacancion" class=" caja card-panel style-7"></div>
+<span style="position:fixed;line-height: 5px;bottom:25vh;opacity: 0.6;left: 39vw" id="arrow">
+<i style="font-size: 4vh;" class="material-icons vinculo white-text blue-grey darken-2" onclick="$('#listacancion').animate({ scrollTop: ($('#listacancion').scrollTop() - 500) },'slow');">keyboard_arrow_up</i><br>
+<i style="font-size: 4vh;" class="material-icons vinculo white-text blue-grey darken-2" onclick="$('#listacancion').animate({ scrollTop: ($('#listacancion').scrollTop() + 500) },'slow');">keyboard_arrow_down</i>
+</span>
+</div>
+<div class="col s6 m4"><div id="cancion" class=" caja card style-7"><br><br><br><h5 class="light"><i class="material-icons">chevron_left</i> Escoge una Canción</h5></div></div>
+<div class="col s6 m3"><div id="favoritos" class=" caja card style-7" style="padding:10px"></div></div>
+</div>
+
+<div id="not" class="row" style="display:none;">
+<div class="col s12 m6"  ><div id="notascol1" class=" caja card-panel style-7"></div></div>
+<div class="col s12 m6"  ><div id="notascol2" class=" caja card-panel style-7"></div></div>
+</div>
+
+<div id="fondos" class="row" style="display: none;">
+<div class="col s3"><div id="listafondos" class=" caja card style-7"></div></div>
+<div class="col s9"><div id="backgro" class="caja card-panel style-7"></div></div>
+</div>
+
+<div id="videoplayer" class="row" style="display: none;">
+<div class="col s6 center"><div id="player"></div></div>
+<div class="col s6 center"><div id="videop" class=" caja card-panel style-7"></div></div>
+</div>
+
+<div id="updates" class="row" style="display: none;">
+<div class="col s12"><div id="upd" class="caja card-panel style-7"></div></div>
+</div>
+
+<div id="footer" class="row " style="margin-left:3px;min-height: 10vh;position:fixed;bottom:-3vh;width:98%;background-color:#F0F0F0;">
+<div class="col s3 flow-text" style="position:relative;top:2vh;zoom:0.8"><small class="col s12">Iluminación: <span id="ilum"></span><div id="opa"></div></small></div>
+
+<div class="col s3 flow-text" style="position:relative;top:2vh;zoom:0.8"><small class="col s12">Tamaño: <span id="letra"></span><div id="letr"></div></small></div>
+
+<div class="col s3" >
+<iframe id="doble" class="col s12" style="-moz-transform: scale(1,0.9);width:100%;height:15vh;position:relative;bottom:2px;" frameborder="0" src="/visor.html?f=visor&t=h"></iframe>
+</div>
+
+<div class="col s3 row animated fadeIn" style="position: relative;top:2vh;">
+<div class="col s3 crece" onclick='win=win=window.open("/?f=visor&t=h","visor", "width=1280,height=720,scrollbars=no,menubar=no,toolbar=no,status=no"); setTimeout(()=>{ visor();},1200);'>
+	<span style= "width:100%" class="vinculo conf letrero z-depth-4 darken-4 waves-effect waves-light tooltipped" title="Abrir Ventana" data-position="top" data-delay="50" data-tooltip="Abrir Ventana"><i class="material-icons ">open_in_browser</i></span></div>
+<div class="col s3 crece" onclick="cambiartexto('','')"><div style= "width:100%" class="vinculo conf waves-effect waves-light  darken-4 letrero z-depth-4 tooltipped" title="Borrar Texto" data-position="top" data-delay="50" data-tooltip="Borrar Texto"><i  class="material-icons">backspace</i></div></div>
+<div  class="col s3 crece"><a style= "width:100%"  class="sidenav-trigger button-collapse vinculo waves-effect conf waves-light darken-4 letrero z-depth-4 tooltipped"  data-activates="fav" href="#" data-position="top" data-delay="50" data-tooltip="Favoritos" onclick="bibliaget();	imgfavoritas();"><i  class="material-icons">star_rate</i></a></div>
+<div  class="col s3 crece"><a style= "width:100%"  class="vinculo waves-effect waves-light conf darken-4 letrero z-depth-4 tooltipped" href="#modal2" title="Más Opciones" data-position="top" data-delay="50" data-tooltip="Configuración"><i class="material-icons">settings</i></a></div>
+</div>
+</div>
+</main>
+  <div id="modal1" class="modal caja modal-fixed-footer">
+    <div class="modal-content" id="contenido" class="caja"></div>
+    <div class="modal-footer grey lighten-5" >
+      <a id="cerrar" onclick="$('.modal').modal('close');" class="vinculo modal-action modal-close waves-effect waves-blue btn left blue-grey darken-4">Cerrar</a>
+      <a id="actualizar" class="vinculo modal-action waves-effect waves-blue btn conf darken-4" onclick="editform.$methods.actualizarletra();">Actualizar</a>
+      <a id="guardar" class="vinculo modal-action waves-effect conf btn  darken-4" onclick="editform.$methods.nuevacancion();">Guardar</a>
+    </div>
+  </div>
+
+
+ <ul id="fav" class="side-nav">
+    <li class="center white-text darken-4 conf"><i class="material-icons emoji" style="top:6px" >menu_book</i> Biblias</li>
+    <li style="padding-left:6px">
+		<div class="col s12">
+			<h5 class="center light">Versión Principal</h5>
+		<select id="biblia1" class="browser-default blue-grey lighten-5" onchange="cambiabiblia(this.value,1)">
+		
+		</select>
+			</div>
+		</li>
+	<li class="center white-text darken-4 conf"><i class="material-icons emoji" style="top:6px">monitor</i> Ventanas Externas</li>
+		<div id="pantallas" class="row" style="font-size:1.4em;margin-bottom: 0px;">
+			<div class="s3 col">
+				<div onclick="letrador();" class="card conf darken-4 white-text center negrilla letrero crece vinculo " style="height: 40px;" title="Letras">Letras</div>
+			</div>
+		</div>
+    <li class="center white-text darken-4 conf"><i class="material-icons emoji" style="top:6px">photo_camera</i> Imágenes Favoritas</li>
+	<li class="grey-text text-darken-3 center blue-grey lighten-5" style="border: 1px solid #a7a7a7">
+		<input type="checkbox" id="borrartexto" checked="true" /><label for="borrartexto" >Borrar Texto al Cambiar Fondo</label>
+		</li>
+	<div id="favorit" class="center" style="margin-top:5px"></div>
+  </ul>
+
+<div id="modal2" class="modal bottom-sheet" style="background-color:#f0f0f0;">
+  <div class="row modal-content" style="padding:4px">
+<!--
+  
+-->  
+<div class="col s4 center grey-text text-darken-4"><div class=" flow-text">Opciones de Estilo</div>
+<div class="card" style="min-height:280px;padding: 10px;">
+
+<div class="s12 col">
+<div class="col s6 flow-text"><small>Efectos</small></div>
+<div class="col s6">
+<select class="blue-grey lighten-4 browser-default" onchange="vista.$data.anim = this.options[this.selectedIndex].value;pageupdate(); ">
+<option value="fadeIn">Desvanecer</option>
+<option value="pulse">Pulso</option>
+<option value="tada">Atención</option>
+<option value="bounceIn">Rebote</option>
+<option value="jello">Gelatina</option>
+<option value="rubberBand">Caucho</option>
+<option value="shake">Sacudida</option>
+<option value="flipInX">Flip X</option>
+<option value="flipInY">Flip Y</option>
+<option value="zoomIn">Zoom</option>
+<option value="zoomInUp">Zoom In Up</option>
+<option value="jackInTheBox">Jack</option>
+<option value="fadeInUp">Deslisar Arriba</option>
+<option value="fadeInRight">Deslisar Izquierda</option>
+<option value="fadeInLeft">Deslisar Derecha</option>
+</select>
+</div>
+<div id="color" class="center col s12 " style="padding: 5px;"> </div>
+</div>
+    </div>
+    </div>
+
+	<div class="col s4  grey-text text-darken-4"><div class="center flow-text">Estilo de Texto</div>
+			<div class="card" style="min-height:260px;padding: 10px;">
+				
+				<div class="col s12 flow-text" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+					<small style="font-weight:600;">Tipo de Letra (Fuente)</small>
+					<div style="display:flex;gap:4px;">
+						<span class="font-nav-btn tooltipped" data-tooltip="Fuente Anterior" onclick="cambiarFuenteRelativa(-1)">◀</span>
+						<span class="font-nav-btn tooltipped" data-tooltip="Fuente Siguiente" onclick="cambiarFuenteRelativa(1)">▶</span>
+					</div>
+				</div>
+				<div class="col s12" style="margin-bottom:8px;">
+					<select class="blue-grey lighten-5 browser-default custom-font-select" id="fuente" style="width:100%;text-transform:capitalize;font-weight:600;border-radius:6px;padding:6px 10px;cursor:pointer;height:38px;border:1px solid #b0bec5;">
+						<option value="quicksand" style="font-family:'Quicksand',sans-serif;">Quicksand (Redondeada / Moderna)</option>
+						<option value="raleway" style="font-family:'Raleway',sans-serif;">Raleway (Elegante / Fina)</option>
+						<option value="roboto" style="font-family:'Roboto',sans-serif;">Roboto (Limpia / Estándar)</option>
+						<option value="lato" style="font-family:'Lato',sans-serif;">Lato (Clásica y Clara)</option>
+						<option value="dosis" style="font-family:'Dosis',sans-serif;">Dosis (Estilizada / Alta)</option>
+						<option value="oregano" style="font-family:'Oregano',cursive;">Oregano (Manuscrita Casual)</option>
+						<option value="kaushanscript" style="font-family:'KaushanScript',cursive;">Kaushan Script (Cursiva Dinámica)</option>
+						<option value="tangerine" style="font-family:'Tangerine',cursive;font-size:22px;">Tangerine (Caligráfica Artística)</option>
+						<option value="atami" style="font-family:'Atami',sans-serif;">Atami (Geométrica Futurista)</option>
+					</select>
+				</div>
+				<!-- Caja de Vista Previa en Vivo -->
+				<div class="col s12 font-preview-container" style="margin-bottom: 10px;">
+					<div id="font-preview-box" class="font-preview-box" title="Haz clic para escribir tu propio texto de prueba" onclick="document.getElementById('font-preview-text').focus();">
+						<div id="font-preview-text" contenteditable="true" spellcheck="false">Porque Dios es Bueno</div>
+						<small id="font-preview-name" class="grey-text">Quicksand • Redondeada Moderna</small>
+					</div>
+				</div>
+				<div class="col s12" style="padding:5px"></div>
+			  	<div class="col s6">
+					<input type="checkbox" id="negrilla" checked="true" /><label for="negrilla" class="negrilla">Negrilla</label>
+				</div>
+				<div class="col s6">
+				<input  type="checkbox" id="autotam"  checked="true" /><label for="autotam">Tamaño Automático</label>
+				</div>
+				<div class="col s6">
+				<input  type="checkbox" id="maxtam"  checked="true" /><label for="maxtam">TAMAÑO MÁXIMO</label>
+				</div>
+				<div class="col s6">
+				<input  type="checkbox" id="mostrarver"  checked="true" /><label for="mostrarver">Mostrar Versión</label>
+				</div>
+				<div class="col s6">
+				<input  type="checkbox" id="mayus"  checked="true" /><label for="mayus">SIEMPRE MAYUSCULAS</label>
+				</div>
+				<div class="col s6">
+				<input  type="checkbox" id="propia"  onclick="if(local == 1){toast({title:'Verás los cambios en el Próximo Reinicio',type:'success'});}" />
+				<label for="propia">VENTANA PROPIA<br><small class="grey darken-3 letrero negrilla">Google Chrome</small></label>
+				</div>
+			<div class="col s12" style="padding:2px"></div>
+<div id="colorletra" class="left col s12 " > 
+		<div class="col s6">
+			<span class="flow-text light"><small>Color de Letras</small>
+				<div  id="colorle" class="letrero" style="width:4vw;height:3vh;border:3px solid #44444427;"  data-jscolor='{alpha:1,value:"#FFF", onInput: "colorlet(this)",position: "right",format:"rgba",palette:"#fff #808080 #000 #996e36 #f55525 #ffe438 #88dd20 #22e0cd #269aff #bb1cd4",paletteCols:10}' > </div>
+			</span>
+		</div>
+		<div class="col s6">
+		<span class="flow-text light"><small>Color de Sombra</small>
+			<div  id="colorso" class="letrero" style="width:4vw;height:3vh;border:3px solid #44444427;"  data-jscolor='{alpha:1,value:"#224373", onInput: "colorsom(this)",position: "right",format:"rgba",palette:"#fff #808080 #000 #996e36 #f55525 #ffe438 #88dd20 #22e0cd #269aff #bb1cd4",paletteCols:10}' > </div>
+		</div>
+</div>
+
+			</div>
+	</div>
+
+
+	<div class="col s4 center  grey-text text-darken-4"><div class="flow-text">Margenes del Texto</div>
+    <div class="card" style="min-height:200px;zoom:0.80;padding: 26px;">
+    <div class="col s3 flow-text center"><small style="position:relative;top:-15px;">Superior: <span id="arr"></span></small><div id="marg-arr" style="height:10vh;"></div></div>
+    <div class="col s3 flow-text center"><small style="position:relative;top:-15px;">Inferior: <span id="aba"></span></small><div id="marg-aba" style="height:10vh;"></div></div>
+    <div class="col s6 flow-text center" ><small style="position:relative;top:-15px;">Izquierdo: <span id="izq"></span></small><div id="marg-izq"></div>
+    <small>Derecho: <span id="der"></span></small><div id="marg-der"></div>
+    
+    </div>
+
+    </div>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript" >
+
+loading();
+	setTimeout(()=>{
+  $(document).ready(function(){
+    colo("");
+    colorbox('color','colo','Color del Entorno');
+    if (typeof actualizarBotonTema === 'function') { actualizarBotonTema(); }
+
+  $("#modal2").modal({
+    ready: function() {
+      if (typeof actualizarVistaPreviaFuente === 'function') { actualizarVistaPreviaFuente(); }
+    }
+  });
+  $("#actualizaciones").modal();
+  
+  $("#modal1").modal({dismissible: false});
+    $(".button-collapse").sideNav({
+      menuWidth: 400, 
+      closeOnClick: true, 
+		draggable: true,    
+		edge: 'right',
+    });
+
+$("#texto").focus();
+barras();
+});
+	},400);
+
+
+$(window).on('unload', function() { try{win.close();} catch(e){} try{win2.close();} catch(e){} });
+
+function resize()
+{
+setTimeout(()=>{
+try{
+var por = (window.innerHeight * 1.065 )- $("#bien").innerHeight()
+doble.style.height= (por )+"px";
+//console.log(por);
+}catch(e){}
+
+},500);
+}
+
+resize();
+
+
+setInterval(()=>{
+$(document.body).attr('style','overflow-x: hidden;zoom:0.90;box-sizing: border-box;');
+resize();
+},2000);
+
+
+if(local == 0)
+	{
+		setTimeout(()=>{
+			document.getElementById('msg').innerHTML = "<div class='white-text center animated fadeInDown'>MCyMB - Sistema de Proyección Bíblica y Multimedia para Iglesias.</div>";
+		},120000)
+	}		
+
+function alerta()
+{
+html = `
+<div id="alerta" class="card-panel z-depth-3 center animated fadeInRight" style="border:1px solid #CFCFCF;border-radius:6px;right:6px;width:200px;height:200px;position:fixed;bottom:-1vh">
+	<h6> Activar Pantalla Completa ?<br><br></h6>
+	<button class="btn grey darken-3" onclick="win.window.full(); $('#alerta').toggleClass('fadeInRight fadeOutRight');">SI</button>
+<button class="btn black" style="margin-top:10px" onclick="$('#alerta').toggleClass('fadeInRight fadeOutRight');">NO</button>
+</div>`
+
+
+$('#cuadro').html(html);
+}
+
+
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(78952282, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script>
+<noscript>
+	<div><img src="https://mc.yandex.ru/watch/78952282" style="position:absolute; left:-9999px;" alt="" /></div>
+ </noscript>
+<div id="cuadro"></div>
+</body>
+</html>
